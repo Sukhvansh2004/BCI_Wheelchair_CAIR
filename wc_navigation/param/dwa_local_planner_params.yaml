@@ -1,0 +1,76 @@
+DWAPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 3.0     # 1.3
+  min_vel_x: -3.0     # 0.7
+
+  max_vel_y: 0.0
+  min_vel_y: 0.0
+
+
+# The velocity when robot is moving in a straight line
+  max_vel_trans:  3     # 1.0
+  min_vel_trans: 1.2      # 0.4
+
+  max_vel_theta:  0.4  # 1.0      #1.5     
+  min_vel_theta:  -0.4  # -1.0          #-1.5
+
+  acc_lim_x: 1.3              #2.5      
+  acc_lim_y: 0.0
+  acc_lim_theta: 2.5               # 3.2 
+
+# Goal Tolerance Parametes
+  latch_xy_goal_tolerance: false
+
+# Forward Simulation Parameters
+  sim_time: 2.5 # initially 1.5, Setting sim time to a very low value (<= 2.0) will result in limited performance
+  vx_samples: 20
+  vy_samples: 0
+  vth_samples: 40
+  controller_frequency: 10.0
+  sim_granularity: 0.01 #A lower value means higher frequency, which requires more computation power
+# # Trajectory Scoring Parameters
+#   path_distance_bias: 50
+#   goal_distance_bias: 30.0
+#   occdist_scale: 0.025 #occdist scale is the weight for how much the robot should attempt to avoid obstacles. A high value for this parameter results in indecisive robot that stucks in place
+#   forward_point_distance: 0.325
+# Trajectory Scoring Parameters
+  path_distance_bias: 50
+  goal_distance_bias: 30.0
+  occdist_scale: 0.025 #occdist scale is the weight for how much the robot should attempt to avoid obstacles. A high value for this parameter results in indecisive robot that stucks in place
+  forward_point_distance: 0.325
+
+#   stop_time_buffer: 0.2
+#   scaling_speed: 0.25
+#   max_scaling_factor: 0.2
+#   yaw_goal_tolerance: 1.0  #these are not default values, need to tune, default is 0.05
+#   xy_goal_tolerance: 0.3 #these are not default values, need to tune, default is 0.1
+
+# # Oscillation Prevention Parameters
+#   oscillation_reset_dist: 0.05
+
+# # Debugging
+#   publish_traj_pc : true
+#   publish_cost_grid_pc: true
+  # Global Plan Parameters
+  prune_plan: true             # Prune global plan as the robot moves
+
+  # Parameter for local replanning
+  heading_lookahead: 0.325     # How far to look ahead in meters
+
+  # Optional Parameters
+  holonomic_robot: false       # Set to true if the robot is holonomic
+  max_global_plan_lookahead_dist: 3.0  # How far to look ahead on the global plan
+
+  # Parameters to tune for deviations
+  # These are important for allowing deviation from the global path
+  oscillation_reset_dist: 0.05 # Distance to reset oscillation
+  escape_vel: -0.1             # Velocity to escape when stuck
+
+  # Control Parameters
+  angular_sim_granularity: 0.025  # Granularity of angular velocity space
+  vx_samples: 20               # Number of samples for velocity in x direction
+  vtheta_samples: 40           # Number of samples for rotational velocity
+  dwa: true                    # Enable DWA
+  publish_traj_pc: true        # Publish planned trajectory
+  publish_cost_grid_pc: true   # Publish cost grid

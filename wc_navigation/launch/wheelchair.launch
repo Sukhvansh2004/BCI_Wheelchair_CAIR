@@ -1,0 +1,17 @@
+<launch>
+    <!-- Node to run rosserial with specified port -->
+    <node name="serial_node" pkg="rosserial_python" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/ttyUSB1" />
+    </node>
+
+    <node name="socket_api" pkg="wc_navigation" type="socket_api.py" output="screen"/>
+
+    <!-- Launch file to start RealSense camera with point cloud enabled -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="enable_pointcloud" value="true" />
+    </include>
+
+    <!-- Launch file for wc_navigation -->
+    <include file="$(find wc_navigation)/launch/wc_navigation.launch"/>
+    
+</launch>
