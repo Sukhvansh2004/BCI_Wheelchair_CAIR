@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>wc_navigation3D</name>
+  <name>wc_navigation3d</name>
   <version>1.2.4</version>
   <description>
     This package provides roslaunch scripts for navigating the robot in 3D.

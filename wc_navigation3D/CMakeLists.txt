@@ -2,7 +2,7 @@
 # Set minimum required version of cmake, project name and compile options
 ################################################################################
 cmake_minimum_required(VERSION 2.8.3)
-project(wc_navigation3D)
+project(wc_navigation3d)
 
 ################################################################################
 # Find catkin packages and libraries for catkin and system dependencies

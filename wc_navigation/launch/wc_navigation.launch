@@ -8,8 +8,6 @@
   <!-- Map server -->
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
-  <!--lidar -->
-  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
   <!-- laser odometry-->
   <include file="$(find rf2o_laser_odometry)/launch/rf2o_laser_odometry.launch"/>   
   <!-- AMCL -->
@@ -27,7 +25,5 @@
     <node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find wc_navigation)/rviz/wc_navigation.rviz"/>
   </group>
-    
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.50 -0.20 0 1.57 0 3.14 base_link laser 10"/>
-  <node pkg="tf" type="static_transform_publisher" name="base_to_cam" args="0.50 -0.20 0.71 0 -0 0 base_link camera_link 10"/>
+
 </launch>
