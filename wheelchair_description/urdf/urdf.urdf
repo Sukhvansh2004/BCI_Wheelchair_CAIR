@@ -3,7 +3,7 @@
 <robot name="wheelchair">
 
   <!-- Your robot description here -->
-  <link name="base_footprint">
+  <link name="base_link">
     <!-- Define your link properties -->
     <visual>
       <!-- Define visual properties -->
@@ -13,7 +13,7 @@
   </link>
 
 
-  <link name="base_link">
+  <link name="chassis">
     <inertial>
       <origin xyz="-0.14238 0.06173 -0.10504" rpy="0 0 0" />
       <mass value="9.6593" />
@@ -40,8 +40,8 @@
     <!-- Define your joint properties -->
     <origin xyz="0 0 0" rpy="1.57 0 3.14"/> <!-- This is the original position and orientation of the joint -->
     <!-- Other joint properties -->
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
+    <parent link="base_link"/>
+    <child link="chassis"/>
   </joint>
 
   <link name="left_wheel">
@@ -69,7 +69,7 @@
 
   <joint name="wheel1" type="continuous">
     <origin xyz="0.21536 -0.23488 0.21222" rpy="0 0 0" />
-    <parent link="base_link" />
+    <parent link="chassis" />
     <child link="left_wheel" />
     <axis xyz="0 0 1" />
   </joint>
@@ -99,7 +99,7 @@
 
   <joint name="wheel2" type="continuous">
     <origin xyz="0.21536 -0.23488 -0.41978" rpy="3.1416 0 3.1416" />
-    <parent link="base_link" />
+    <parent link="chassis" />
     <child link="right_wheel" />
     <axis xyz="0 0 -1" />
   </joint>
@@ -129,7 +129,7 @@
 
   <joint name="camera" type="fixed">
     <origin xyz="-0.39931 0.33074 -0.35378" rpy="1.5708 0 -3.1416" />
-    <parent link="base_link" />
+    <parent link="chassis" />
     <child link="depth_camera" />
     <axis xyz="0 0 0" />
   </joint>
@@ -158,8 +158,8 @@
   </link>
 
   <joint name="lidar_joint" type="fixed">
-    <origin xyz="-0.64132 -0.14701 -0.37178" rpy="1.5708 0 -3.1416" />
-    <parent link="base_link" />
+    <origin xyz="-0.64132 -0.14701 -0.37178" rpy="1.5714 1.5708 0" />
+    <parent link="chassis" />
     <child link="lidar" />
     <axis xyz="0 0 0" />
   </joint>

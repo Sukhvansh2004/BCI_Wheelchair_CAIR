@@ -60,19 +60,19 @@ Visualization Manager:
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: true
-        base_footprint:
-          Value: true
+        All Enabled: false
         base_link:
+          Value: false
+        chassis:
           Value: true
         depth_camera:
           Value: true
         left_wheel:
-          Value: true
+          Value: false
         lidar:
-          Value: true
+          Value: false
         right_wheel:
-          Value: true
+          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -80,8 +80,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_footprint:
-          base_link:
+        base_link:
+          chassis:
             depth_camera:
               {}
             left_wheel:
@@ -96,7 +96,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_footprint
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -120,7 +120,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.497115135192871
+      Distance: 2.0837254524230957
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -128,17 +128,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.2669788897037506
-        Y: -0.14993494749069214
-        Z: 0.5381448268890381
+        X: 0.21309776604175568
+        Y: 0.17024880647659302
+        Z: 0.37631699442863464
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5103977918624878
+      Pitch: 0.4803977608680725
       Target Frame: <Fixed Frame>
-      Yaw: 3.125399351119995
+      Yaw: 1.6453975439071655
     Saved: ~
 Window Geometry:
   Displays:
@@ -156,5 +156,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: -4
-  Y: -4
+  X: 38
+  Y: 30

@@ -28,7 +28,7 @@
 #robot_radius: 0.130 #initially 0.15
 # robot_radius: 0.35
 footprint: [[0.55, 0.35], [0.55, -0.35], [-0.45, -0.35], [-0.45, 0.350]]
-transform_tolerance: 0.4
+transform_tolerance: 0.5
 map_type: costmap
 
 obstacle_layer:
@@ -64,7 +64,7 @@ rgbd_obstacle_layer:
     combination_method:       1     # 1=max, 0=override
     origin_z:                 0.0   # meters
     publish_voxel_map:        true # default off
-    transform_tolerance:      1   # seconds
+    transform_tolerance:      0.2   # seconds
     mapping_mode:             false # default off, saves map not for navigation
     map_save_duration:        60.0  # default 60s, how often to autosave
     observation_sources:      rgbd1_mark rgbd1_clear
