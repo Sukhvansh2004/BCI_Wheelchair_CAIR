@@ -21,8 +21,9 @@
   </group>
 
     <group unless="$(arg gazebo)">
-        <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
-    
+        <include file="$(find rplidar_ros)/launch/rplidar.launch">
+          <param name="serial_port" type="string" value="/dev/ttyUSB0"/>
+        </include>
             <!-- Node to run rosserial with specified port -->
         <node name="serial_node" pkg="rosserial_python" type="serial_node.py" output="screen">
             <param name="port" value="/dev/ttyUSB1" />
