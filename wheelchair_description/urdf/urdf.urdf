@@ -4,6 +4,14 @@
 
   <link name="base_link"/>
 
+  <link name="base_footprint"/>
+
+  <joint name="base_link_footprint" type="fixed">
+    <origin xyz="0 0 -0.4" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
+
   <link name="chassis">
     <inertial>
       <origin xyz="-0.14238 0.06173 -0.10504" rpy="0 0 0" />
@@ -29,7 +37,7 @@
 
   <joint name="connector" type="fixed">
     <!-- Define your joint properties -->
-    <origin xyz="0 0 0.4" rpy="1.57 0 3.14"/> <!-- This is the original position and orientation of the joint -->
+    <origin xyz="0 0 0" rpy="1.57 0 3.14"/> <!-- This is the original position and orientation of the joint -->
     <!-- Other joint properties -->
     <parent link="base_link"/>
     <child link="chassis"/>
@@ -167,7 +175,7 @@
   <link name="lidar"/>
 
   <joint name="lidar_link_geometry" type="fixed">
-    <origin xyz="0 0 0" rpy="-3.1416 0 -1.5708" />
+    <origin xyz="0 0 0" rpy="0 0 -3.1416" />
     <parent link="lidar_link" />
     <child link="lidar" />
     <axis xyz="0 0 0" />
