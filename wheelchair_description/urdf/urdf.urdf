@@ -134,7 +134,7 @@
     <axis xyz="0 0 0" />
   </joint>
 
-  <link name="lidar">
+  <link name="lidar_link">
     <inertial>
       <origin xyz="-0.0031142 0.017894 -0.0072225" rpy="0 0 0" />
       <mass value="0.13016" />
@@ -160,6 +160,15 @@
   <joint name="lidar_joint" type="fixed">
     <origin xyz="-0.64132 -0.14701 -0.37178" rpy="1.5714 1.5708 0" />
     <parent link="chassis" />
+    <child link="lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="lidar"/>
+
+  <joint name="lidar_link_geometry" type="fixed">
+    <origin xyz="0 0 0" rpy="-3.1416 0 -1.5708" />
+    <parent link="lidar_link" />
     <child link="lidar" />
     <axis xyz="0 0 0" />
   </joint>
