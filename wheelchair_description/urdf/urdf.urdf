@@ -172,12 +172,12 @@
     <axis xyz="0 0 0" />
   </joint>
 
-  <link name="lidar"/>
+  <link name="laser"/>
 
   <joint name="lidar_link_geometry" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 -3.1416" />
+    <origin xyz="0 0 0" rpy="0 0 3.1416" />
     <parent link="lidar_link" />
-    <child link="lidar" />
+    <child link="laser" />
     <axis xyz="0 0 0" />
   </joint>
 
@@ -224,7 +224,7 @@
   </sensor>
 </gazebo>
 
- <gazebo reference="lidar">
+ <gazebo reference="laser">
     <sensor name="head_hokuyo_sensor" type="ray">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
@@ -250,8 +250,8 @@
         </noise>
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
-        <topicName>scan</topicName>
-        <frameName>lidar</frameName>
+        <topicName>/front/scan</topicName>
+        <frameName>laser</frameName>
       </plugin>
     </sensor>
   </gazebo>
@@ -266,8 +266,8 @@
       <wheelDiameter>0.33</wheelDiameter>
       <torque>20</torque>
       <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom_temp</odometryTopic>
-      <odometryFrame>odom_temp</odometryFrame>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishTf>0</publishTf>
     </plugin>
