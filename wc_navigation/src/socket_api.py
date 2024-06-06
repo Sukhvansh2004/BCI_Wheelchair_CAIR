@@ -1,6 +1,5 @@
 import socket
 import rospy
-from std_msgs.msg import String
 from geometry_msgs.msg import PoseStamped
 
 def create_pose_stamped(position, orientation):

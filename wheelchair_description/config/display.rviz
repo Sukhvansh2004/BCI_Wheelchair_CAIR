@@ -6,7 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Grid1
+        - /RobotModel1
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
@@ -54,25 +54,104 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: true
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chassis:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        depth_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel_hub:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lider:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: false
+        All Enabled: true
+        base_footprint:
+          Value: true
         base_link:
-          Value: false
+          Value: true
         chassis:
           Value: true
         depth_camera:
           Value: true
+        front_left_wheel:
+          Value: true
+        front_left_wheel_hub:
+          Value: true
+        front_right_wheel:
+          Value: true
+        front_right_wheel_hub:
+          Value: true
         left_wheel:
-          Value: false
-        lidar:
-          Value: false
+          Value: true
+        lider:
+          Value: true
         right_wheel:
-          Value: false
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -81,12 +160,20 @@ Visualization Manager:
       Show Names: true
       Tree:
         base_link:
+          base_footprint:
+            {}
           chassis:
             depth_camera:
               {}
+            front_left_wheel_hub:
+              front_left_wheel:
+                {}
+            front_right_wheel_hub:
+              front_right_wheel:
+                {}
             left_wheel:
               {}
-            lidar:
+            lider:
               {}
             right_wheel:
               {}
@@ -120,7 +207,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.0837254524230957
+      Distance: 1.4541935920715332
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -128,17 +215,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.21309776604175568
-        Y: 0.17024880647659302
-        Z: 0.37631699442863464
+        X: 0.5205551385879517
+        Y: 0.2638079524040222
+        Z: 0.14105874300003052
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4803977608680725
+      Pitch: 0.2753969728946686
       Target Frame: <Fixed Frame>
-      Yaw: 1.6453975439071655
+      Yaw: 0.017204169183969498
     Saved: ~
 Window Geometry:
   Displays:
@@ -156,5 +243,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 38
-  Y: 30
+  X: 32
+  Y: 41

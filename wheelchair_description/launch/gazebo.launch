@@ -1,15 +1,11 @@
 <launch>
-  <arg name="world" default="$(find gazebo_ros)/worlds/sandbox.world"/>
-
-  <!-- Launch Gazebo with the specified world -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(arg world)" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
   </include>
   <node
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find wheelchair_description)/urdf/urdf.urdf -urdf -model wheelchair"
+    args="-file $(find wheelchair_description)/urdf/wheelchair.urdf -urdf -model wheelchair"
     output="screen" />
   <node
     name="fake_joint_calibration"

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wheelchair">
+
+  <link name="base_link"/>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_link_footprint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+  </joint>
+  
+  <link
+    name="chassis">
+    <inertial>
+      <origin
+        xyz="0.10484639272781 0.073636968964456 0.153514665201385"
+        rpy="0 0 0" />
+      <mass
+        value="7.59736709449585" />
+      <inertia
+        ixx="0.546425292144574"
+        ixy="2.71444187071071E-05"
+        ixz="-2.05851775873025E-05"
+        iyy="0.34354373634181"
+        iyz="0.00419612016775444"
+        izz="0.301362251907821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="connector" type="fixed">
+    <origin xyz="0 0 0.4" rpy="0 0 -1.5708"/>
+    <parent link="base_link"/>
+    <child link="chassis"/>
+  </joint>
+
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="3.33066907387547E-16 5.55111512312578E-17 0.016"
+        rpy="0 0 0" />
+      <mass
+        value="3.50680611696861" />
+      <inertia
+        ixx="0.0255963516724082"
+        ixy="-1.70937398033571E-18"
+        ixz="3.15506914761784E-19"
+        iyy="0.0255963516724082"
+        iyz="-3.1730175559619E-19"
+        izz="0.049822613384218" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel2"
+    type="continuous">
+    <origin
+      xyz="0.419776895209797 -0.215361553120041 -0.234883626533637"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="chassis" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="25"
+      velocity="30" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-16 -1.94289029309402E-16 -0.016"
+        rpy="0 0 0" />
+      <mass
+        value="3.50680611696861" />
+      <inertia
+        ixx="0.0255963516724082"
+        ixy="-1.17781572259513E-18"
+        ixz="-1.81400867214797E-19"
+        iyy="0.0255963516724082"
+        iyz="7.79580771753648E-19"
+        izz="0.049822613384218" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel1"
+    type="continuous">
+    <origin
+      xyz="-0.212223104790203 -0.215361553120041 -0.234883626533637"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="chassis" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="3.14"
+      upper="-3.14"
+      effort="25"
+      velocity="20" />
+  </joint>
+  <link
+    name="depth_camera">
+    <inertial>
+      <origin
+        xyz="5.11643388778626E-06 -0.0126412823426572 0.0318832196549816"
+        rpy="0 0 0" />
+      <mass
+        value="0.053868996809357" />
+      <inertia
+        ixx="5.73389146352446E-06"
+        ixy="2.83934723431709E-11"
+        ixz="5.95887379414193E-09"
+        iyy="3.51541406621888E-05"
+        iyz="1.76753686892829E-07"
+        izz="3.49050201173408E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/depth_camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/depth_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera"
+    type="fixed">
+    <origin
+      xyz="0.353776895209797 0.399309796820887 0.330742227523792"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="depth_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="laser">
+    <inertial>
+      <origin
+        xyz="-0.0031141572559561 0.0178937929425151 -0.00722245659832399"
+        rpy="0 0 0" />
+      <mass
+        value="0.130163989740365" />
+      <inertia
+        ixx="0.000543721028964252"
+        ixy="6.69207347695983E-05"
+        ixz="-1.11382462752139E-05"
+        iyy="8.37023933918083E-05"
+        iyz="5.959187228326E-05"
+        izz="0.000574435007030532" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/laser.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/laser.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser"
+    type="fixed">
+    <origin
+      xyz="0.371779888026633 0.641320401923623 -0.147011314279618"
+      rpy="-3.14102888262169 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="laser" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="front_left_wheel_hub">
+    <inertial>
+      <origin
+        xyz="-0.0325142015444485 0.00527393042209373 0.0427071352040033"
+        rpy="0 0 0" />
+      <mass
+        value="0.119259145323825" />
+      <inertia
+        ixx="0.000240714400853056"
+        ixy="-2.44937866775817E-07"
+        ixz="6.08937837656814E-05"
+        iyy="0.000282246549115253"
+        iyz="5.98860399172328E-07"
+        izz="7.18721140751427E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_left_wheel_hub.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_left_wheel_hub.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel3_hub"
+    type="continuous">
+    <origin
+      xyz="-0.207734784402671 0.394724880917965 -0.185925069075475"
+      rpy="3.14159265358979 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="front_left_wheel_hub" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="25"
+      velocity="20" />
+  </joint>
+  <link
+    name="front_left_wheel">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 1.11022302462516E-16 0.0546475439429088"
+        rpy="0 0 0" />
+      <mass
+        value="1.00840738996709" />
+      <inertia
+        ixx="0.00353804709901058"
+        ixy="-2.74341667867365E-19"
+        ixz="-3.8938226980424E-20"
+        iyy="0.00353804709901058"
+        iyz="8.73392799391558E-19"
+        izz="0.00677737207942363" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel3"
+    type="continuous">
+    <origin
+      xyz="-0.058754 0.0099909 0.10645"
+      rpy="0 -1.5708 -3.1416" />
+    <parent
+      link="front_left_wheel_hub" />
+    <child
+      link="front_left_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="25"
+      velocity="20" />
+  </joint>
+  <link
+    name="front_right_wheel_hub">
+    <inertial>
+      <origin
+        xyz="0.00524189432831379 0.0326650088917544 0.0422742354329876"
+        rpy="0 0 0" />
+      <mass
+        value="0.118454638850066" />
+      <inertia
+        ixx="0.000282225661471367"
+        ixy="2.44937879678304E-07"
+        ixz="5.98860392044522E-07"
+        iyy="0.000240674961428723"
+        iyz="-6.08937837768515E-05"
+        izz="7.18512264955745E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_right_wheel_hub.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_right_wheel_hub.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel4_hub"
+    type="continuous">
+    <origin
+      xyz="0.406896116139023 0.394724840831582 -0.185792537423861"
+      rpy="3.1301363869966 0 1.57079632679489" />
+    <parent
+      link="chassis" />
+    <child
+      link="front_right_wheel_hub" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="25"
+      velocity="20" />
+  </joint>
+  <link
+    name="front_right_wheel">
+    <inertial>
+      <origin
+        xyz="0 -2.22044604925031E-16 0.0464962670274469"
+        rpy="0 0 0" />
+      <mass
+        value="1.00840738996709" />
+      <inertia
+        ixx="0.00353804709901059"
+        ixy="9.98503707475614E-20"
+        ixz="-6.43745039913268E-20"
+        iyy="0.00353804709901059"
+        iyz="3.25489270032535E-19"
+        izz="0.00677737207942364" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/front_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel4"
+    type="continuous">
+    <origin
+      xyz="0.0099909 0.057754 0.10645"
+      rpy="1.5102 1.5708 -0.060599" />
+    <parent
+      link="front_right_wheel_hub" />
+    <child
+      link="front_right_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="25"
+      velocity="20" />
+  </joint>
+
+  <link name="camera_link"/>
+
+  <joint name="camera_link" type="fixed">
+    <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
+    <parent link="depth_camera" />
+    <child link="camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  
+    <!-- Camera plugin -->
+  <gazebo reference="camera_link"> <!--XYZ Frame-->
+    <sensor name="d435i_realsense_depth" type="depth">
+      <update_rate>20</update_rate>
+      <camera>
+        <horizontal_fov>1.047198</horizontal_fov>
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>30</far>
+        </clip>
+      </camera>
+      <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>50.0</updateRate>
+        <cameraName>d435i_realsense_depth</cameraName>
+        <imageTopicName>/camera/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/camera/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/camera/depth/color/points</pointCloudTopicName>
+        <frameName>depth_camera</frameName>   <!--ZYX Frame-->
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="laser">
+    <sensor name="head_hokuyo_sensor" type="ray">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.2</min>
+          <max>10.1</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.02</stddev>
+        </noise>
+      </ray>
+      <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_head_hokuyo_controller">
+        <topicName>scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50</updateRate>
+      <leftJoint>wheel1</leftJoint>
+      <rightJoint>wheel2</rightJoint>
+      <wheelSeparation>0.643</wheelSeparation>
+      <wheelDiameter>0.33</wheelDiameter>
+      <torque>20</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <publishTf>0</publishTf>
+    </plugin>
+  </gazebo>
+
+</robot>

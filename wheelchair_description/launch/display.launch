@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find wheelchair_description)/urdf/urdf.urdf" />
+    textfile="$(find wheelchair_description)/urdf/wheelchair.urdf" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find wheelchair_description)/rviz/config.rviz" />
+    args="-d $(find wheelchair_description)/config/display.rviz" />
 </launch>

@@ -29,11 +29,12 @@ DWAPlannerROS:
 #   vth_samples: 40
 #   controller_frequency: 10.0
 #   sim_granularity: 0.025 #A lower value means higher frequency, which requires more computation power
-# # # Trajectory Scoring Parameters
-# #   path_distance_bias: 50
-# #   goal_distance_bias: 30.0
-# #   occdist_scale: 0.025 #occdist scale is the weight for how much the robot should attempt to avoid obstacles. A high value for this parameter results in indecisive robot that stucks in place
-# #   forward_point_distance: 0.325
+ 
+# Trajectory Scoring Parameters
+  path_distance_bias: 50.0 #(double, default: 32.0)The weighting for how much the controller should stay close to the path it was given 
+  goal_distance_bias: 42.0 #(double, default: 24.0) The weighting for how much the controller should attempt to reach its local goal, also controls speed 
+  occdist_scale: 0.025 #occdist scale is the weight for how much the robot should attempt to avoid obstacles. A high value for this parameter results in indecisive robot that stucks in place #initially 0.015
+  
 # # Trajectory Scoring Parameters
 #   path_distance_bias: 30
 #   goal_distance_bias: 50.0
